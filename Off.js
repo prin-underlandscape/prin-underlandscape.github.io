@@ -1,11 +1,12 @@
 var geojson = {
-	      "type": "FeatureCollection",
-        "properties": {
-          "Nome": "",
-          "Descrizione": "",
-          "umapKey": ""},
-	      "features": []
-	    };
+  "type": "FeatureCollection",
+  "properties": {
+     "Nome": "",
+     "Descrizione": "",
+     "umapKey": ""
+  },
+  "features": []
+};
 var umap = {};
 var inputType = ""; // geojson, umap, qrcode
 var filename; // (without extension)
@@ -54,7 +55,7 @@ function fileUpload (event) {
 	      geojson.features.push(point);
         geojson.features[0].properties.ulsp_type = "Sito";
         map=[
-    	    ["01-name","Titolo"],
+    	  ["01-name","Titolo"],
           ["02-description","Descrizione"],
           ["03-date","Data"],
           ["04-time","Ora"],
@@ -62,8 +63,8 @@ function fileUpload (event) {
           ["08-Provincia","Provincia"],
           ["09-Comune","Comune"],
           ["10-Toponimo","Toponimo"],
-	        ["11-Microtoponimo","Microtoponimo"],
-	        ["12-Altitudine","Altitudine"],
+	      ["11-Microtoponimo","Microtoponimo"],
+	      ["12-Altitudine","Altitudine"],
           ["13-Strada accesso","Strade d'accesso"],
           ["14-Altra localizzazione","Altri elementi di localizzazione"],
           ["15-Tipologia","Tipologia sito"],
@@ -261,15 +262,17 @@ function saveGeoJSON() {
   geojson.properties.Nome = document.getElementById('FeatureCollectionName').value;
   geojson.properties.Descrizione = document.getElementById('FeatureCollectionDescription').value;
   geojson.properties.umapKey = document.getElementById('FeatureCollectionUmapKey').value;
-	const a = document.createElement("a");
+  geojson.properties.WebPageURL = document.getElementById('WebPageURL').value;
+  geojson.properties.BibliographyURL = document.getElementById('BibliographyURL').value;
+  const a = document.createElement("a");
 //	console.log(geojson);
-	a.href = URL.createObjectURL(
-      new Blob([JSON.stringify(geojson, null, 2)], {type: "text/plain"}
-   ));
-	a.setAttribute("download", geojson.properties.Nome+".geojson");
-	document.body.appendChild(a);
-	a.click();
-	document.body.removeChild(a);
+  a.href = URL.createObjectURL(
+    new Blob([JSON.stringify(geojson, null, 2)], {type: "text/plain"})
+  );
+  a.setAttribute("download", geojson.properties.Nome+".geojson");
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 }
 
 

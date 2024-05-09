@@ -1,40 +1,31 @@
 const tagList = 
 [
   {
-    "item": "",
-    "iconURL": "/uploads/pictogram/hotel.svg"
+    "item": ""
   },
   {
-    "item": "Albergo",
-    "iconURL": "/uploads/pictogram/hotel.svg"
+    "item": "Albergo"
   },
   {
-    "item": "Ristorante",
-    "iconURL": "/uploads/pictogram/restaurant.svg"
+    "item": "Ristorante"
   },
   {
-    "item": "Bar",
-    "iconURL": "/uploads/pictogram/cafe.svg"
+    "item": "Bar"
   },
   {
-    "item": "Parco giochi",
-    "iconURL": "/uploads/pictogram/playground.svg"
+    "item": "Parco giochi"
   },
   {
-    "item": "Monumento",
-    "iconURL": "/uploads/pictogram/monument.svg"
+    "item": "Monumento"
   },
   {
-    "item": "Parcheggio",
-    "iconURL": "/uploads/pictogram/parking-car.svg"
+    "item": "Parcheggio"
   },
   {
-    "item": "Segnalazione",
-    "iconURL": "/uploads/pictogram/guide-post.svg"
+    "item": "Segnalazione"
   },
   {
-    "item": "Fermata Bus",
-    "iconURL": "/uploads/pictogram/bus-stop.svg"
+    "item": "Fermata Bus"
   }
 ]
 
