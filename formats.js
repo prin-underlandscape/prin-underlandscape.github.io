@@ -489,6 +489,7 @@ const formatDescriptions =
 	  },
       {
         "key": "Bibliografia",
+        "label": "URL Bibliografia",
         "value": "",
         "type": "string"
       },

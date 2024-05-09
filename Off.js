@@ -33,9 +33,9 @@ function fileUpload (event) {
           if ( ( ! ( 'Descrizione' in geojson.properties ) ) || ( geojson.properties.Descrizione === '' ) ) {
             geojson.properties.Descrizione = ( 'Descrizione' in data.properties ) ? data.properties.Descrizione : '';
           }
-          if ( ( ! ( 'umapKey' in geojson.properties ) ) || ( geojson.properties.umapKey === '' ) ) {
-            geojson.properties.umapKey = ( 'umapKey' in data.properties ) ? data.properties.umapKey : '';
-          }
+//          if ( ( ! ( 'umapKey' in geojson.properties ) ) || ( geojson.properties.umapKey === '' ) ) {
+//            geojson.properties.umapKey = ( 'umapKey' in data.properties ) ? data.properties.umapKey : '';
+//          }
         } 
         else
           geojson.properties = {'Nome': '','Descrizione': '','umapKey': ''}
@@ -263,7 +263,7 @@ function saveGeoJSON() {
   geojson.properties.Descrizione = document.getElementById('FeatureCollectionDescription').value;
   geojson.properties.umapKey = document.getElementById('FeatureCollectionUmapKey').value;
   geojson.properties.WebPageURL = document.getElementById('WebPageURL').value;
-  geojson.properties.BibliographyURL = document.getElementById('BibliographyURL').value;
+//  geojson.properties.BibliographyURL = document.getElementById('BibliographyURL').value;
   const a = document.createElement("a");
 //	console.log(geojson);
   a.href = URL.createObjectURL(
@@ -274,8 +274,6 @@ function saveGeoJSON() {
   a.click();
   document.body.removeChild(a);
 }
-
-
 
 // La funzione risponde al tasto "Chiudi il file".
 // Gestisce l'interfaccia chiudendo l'interfaccia di editing e
@@ -490,7 +488,8 @@ function editFeature (featureIndex) {
   properties.formitems.forEach( property =>
   {
     if ( property.key !== "ulsp_type" ) {
-      let nome = document.createTextNode(`${property.key}: `);
+	  textNodeLabel = property.label ? property.label : property.key
+      let nome = document.createTextNode(`${textNodeLabel}: `);
       propertiesList.appendChild(nome);
       if ( ! Object.hasOwn(geojson.features[featureIndex].properties,property.key) ) {
 // Crea la proprietà se non esistente nel geojson (non sono sicuro che sia una buona idea)
