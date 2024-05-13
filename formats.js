@@ -1,31 +1,166 @@
 const tagList = 
 [
   {
-    "item": ""
+    "item": "",
+    "iconURL": "/uploads/pictogram/hotel.svg"
   },
   {
-    "item": "Albergo"
+    "item": "Albergo",
+    "iconURL": "/uploads/pictogram/hotel.svg"
   },
   {
-    "item": "Ristorante"
+    "item": "Ristorante",
+    "iconURL": "/uploads/pictogram/restaurant.svg"
   },
   {
-    "item": "Bar"
+    "item": "Bar",
+    "iconURL": "/uploads/pictogram/cafe.svg"
   },
   {
-    "item": "Parco giochi"
+    "item": "Parco giochi",
+    "iconURL": "/uploads/pictogram/playground.svg"
   },
   {
-    "item": "Monumento"
+    "item": "Monumento",
+    "iconURL": "/uploads/pictogram/monument.svg"
   },
   {
-    "item": "Parcheggio"
+    "item": "Parcheggio",
+    "iconURL": "/uploads/pictogram/parking-car.svg"
   },
   {
-    "item": "Segnalazione"
+    "item": "Segnalazione",
+    "iconURL": "/uploads/pictogram/guide-post.svg"
   },
   {
-    "item": "Fermata Bus"
+    "item": "Fermata Bus",
+    "iconURL": "/uploads/pictogram/bus-stop.svg"
+  },
+  
+  
+  {
+    "item": "Monumenti",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Ponti",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Chiese e similari",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Cimiteri",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Museo",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Galleria d’arte",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Azienda agricola",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Albergo",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Ristorante",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Bar",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Camping",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Centro attività sportive",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Parco giochi",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Centro attività culturali",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Teatro",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Posta",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Banca",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Ospedale",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Guardia Medica",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Farmacia",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Fermata autobus",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Punto informazioni turistiche",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Carabinieri",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Noleggio bike, auto, moto",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Segnaletica",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Lago",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Fiume, torrente",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Monte",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Bosco",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Riserva naturale",
+    "iconURL": "/uploads/pictogram/star.svg"
+  },
+  {
+    "item": "Grotta",
+    "iconURL": "/uploads/pictogram/star.svg"
   }
 ]
 
