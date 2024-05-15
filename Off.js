@@ -121,21 +121,21 @@ function fileUpload (event) {
         break;      
       case "csv":
 		var data = csvToJSON(event.target.result)
-		console.log(data)
         data.forEach( obj => {
 			var feature = {};
             feature.type = "Feature";
-            var lat = ( obj.Latitude === "" ) ? "44.0" : obj.Latitude;
-            var long = ( obj.Longitude === "") ? "10.6" : obj.Longitude;
+            var lat = ( obj.Latitudine === "" ) ? "44.0" : obj.Latitudine;
+            delete obj.Latitudine;
+            var long = ( obj.Longitudine === "") ? "10.6" : obj.Longitudine;
+            delete obj.Longitudine;
             var type = ( obj.ulsp_type === "Percorso" ) ? "MultiLineString" : "Point";
 			feature.geometry = {
               "coordinates": [long,lat],
               "type": type
-            },
+            };
             feature.properties = obj;
 			geojson.features.push(feature) 
 		})
-		console.log(geojson)
         processFile(); 
         break;
       default: return;
