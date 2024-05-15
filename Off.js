@@ -3,13 +3,38 @@ var geojson = {
   "properties": {
      "Nome": "",
      "Descrizione": "",
-     "umapKey": ""
+     "umapKey": "",
+     "WebPageURL": ""
   },
   "features": []
 };
 var umap = {};
 var inputType = ""; // geojson, umap, qrcode
 var filename; // (without extension)
+
+// Credits: https://stackoverflow.com/questions/59016562
+function csvToJSON(csv) {
+    var lines = csv.split("\n");
+    var result = [];
+    var headers;
+    headers = lines[0].split(",");
+
+    for (var i = 1; i < lines.length; i++) {
+        var obj = {};
+
+        if(lines[i] == undefined || lines[i].trim() == "") {
+            continue;
+        }
+
+        var words = lines[i].split(",");
+        for(var j = 0; j < words.length; j++) {
+            obj[headers[j].trim()] = words[j];
+        }
+
+        result.push(obj);
+    }
+    return result;
+}
 
 // La funzione risponde alla scelta del file in apertura della App
 // e, a caricamento avvenuto, chiama la funzione processFile
@@ -93,6 +118,25 @@ function fileUpload (event) {
         }
         map.forEach( m => mapField( m[0], m[1] ) );
         processFile();
+        break;      
+      case "csv":
+		var data = csvToJSON(event.target.result)
+		console.log(data)
+        data.forEach( obj => {
+			var feature = {};
+            feature.type = "Feature";
+            var lat = ( obj.Latitude === "" ) ? "44.0" : obj.Latitude;
+            var long = ( obj.Longitude === "") ? "10.6" : obj.Longitude;
+            var type = ( obj.ulsp_type === "Percorso" ) ? "MultiLineString" : "Point";
+			feature.geometry = {
+              "coordinates": [long,lat],
+              "type": type
+            },
+            feature.properties = obj;
+			geojson.features.push(feature) 
+		})
+		console.log(geojson)
+        processFile(); 
         break;
       default: return;
     }
