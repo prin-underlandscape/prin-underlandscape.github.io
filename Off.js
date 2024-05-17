@@ -12,6 +12,11 @@ var umap = {};
 var inputType = ""; // geojson, umap, qrcode
 var filename; // (without extension)
 
+// Visualizza un alert quando si premono il tast "back" e "reload"
+window.onbeforeunload = function(event) {
+  event.returnValue = true;
+};
+
 // Credits: https://stackoverflow.com/questions/59016562
 function csvToJSON(csv) {
     var lines = csv.split("\n");
