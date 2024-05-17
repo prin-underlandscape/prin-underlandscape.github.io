@@ -504,7 +504,7 @@ function editFeature (featureIndex) {
   wrongAttributes.appendChild(wrongAttributesTitle);
   Object.keys(geojson.features[featureIndex].properties).forEach( (inputAttr, index) =>
     {
-      if ( ! ulspAttributes.find( ulspAttr => inputAttr === ulspAttr) )  {
+      if ( ! [...ulspAttributes,"_umap_options"].find( ulspAttr => inputAttr === ulspAttr ) )  {
         wrongAttributes.style.display = "block"; // Visualizza il div solo se c'è almeno un attributo estraneo   
         let keyvalue = document.createElement("LABEL");
         keyvalue.style.color = "red";
