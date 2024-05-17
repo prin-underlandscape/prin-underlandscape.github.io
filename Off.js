@@ -109,7 +109,7 @@ function fileUpload (event) {
           ["24-Accessibilità","Accessibilità"],
           ["25-Copertura rete mobile","Copertura rete mobile"],
           ["26-Copertura GPS","Copertura GPS"],
-          ["_umap_options",""]
+//          ["_umap_options",""]
         ]
         function mapField(orig,target) {
           if ( orig in geojson.features[0].properties ) {
@@ -500,7 +500,7 @@ function editFeature (featureIndex) {
 // Genera l'elenco degli attributi da rimuovere, non contenuti nel formato Underlandscape 
   wrongAttributes.style.display = "none";   
   let wrongAttributesTitle = document.createElement('H4');
-  wrongAttributesTitle.innerHTML='Queste proprietà non sono definite nel formato Underlandscape: andrebbero rimossi';
+  wrongAttributesTitle.innerHTML='Queste proprietà non sono definite nel formato Underlandscape: andrebbero rimosse';
   wrongAttributes.appendChild(wrongAttributesTitle);
   Object.keys(geojson.features[featureIndex].properties).forEach( (inputAttr, index) =>
     {
@@ -531,7 +531,7 @@ function editFeature (featureIndex) {
     });
 // Genera l'elenco editabile dei campi editabili, evidenziando errori
   let editableAttributesTitle = document.createElement('H4');
-  editableAttributesTitle.innerHTML='Queste proprietà sono definite nel formato Underlandscape e possono essere modificati';
+  editableAttributesTitle.innerHTML='Queste proprietà sono definite nel formato Underlandscape e possono essere modificate';
   propertiesList.appendChild(editableAttributesTitle);
 // Per ogni proprietà della feature genera una riga con una etichetta ed un box di editing
   properties.formitems.forEach( property =>
