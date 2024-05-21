@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset='UTF-8'>
   </head>
   <body>
-  <select id="select" multiple>
+  <p id='waittags'>Sto scaricando i tuoi tag</p>
+  <div id='tags' hidden>
+  <h3>Seleziona uno o più tag</h3>
+  <select id='select' multiple>
+  </div>
   </select>
-    <div id="output">
-	
-    </div>
+  <p id='waitoutput' hidden></p>
+  <div id='output' hidden>	
+  </div>
   </body>
+  <script src="common.js"></script>
   <script src="search.js"></script>
 </html>
