@@ -1,12 +1,16 @@
-fetch(`${url}/tags`, { headers: headers})
+var collections;
+
+fetch(`${url}/collections`, { headers: headers})
 .then( (response) => response.json() )
 .then( (jsonList) => {
+  console.log(jsonList);
+  collections=jsonList;
   document.getElementById('tags').removeAttribute('hidden');
   document.getElementById('waittags').setAttribute('hidden','');
-  jsonList.forEach( t => {
+  jsonList.forEach( c => {
     var opt = document.createElement('option');
-    opt.value = t.tag;
-    opt.innerHTML = t.tag;
+    opt.value = c.data.name;
+    opt.innerHTML = c.data.name;
     document.getElementById('select').appendChild(opt);
   })
 })
@@ -18,30 +22,16 @@ document.getElementById('select').addEventListener('change',function(e){
   document.getElementById('waitoutput').innerHTML = 'Sto cercando nella bibliografia'
   document.getElementById('output').setAttribute('hidden','');
   var query="";
-  Array.from(select.options).filter(x => x.selected).map(x => query += `&tag=${x.value}`);
-  console.log(query);//const queryString = window.location.search;
-  if (query !== "") {
-	  fetch(`${url}/items?format=json${query}`, { headers: headers})
-	  .then( (response) => response.json() )
-	  .then( (bibList) => {
-	    var titleList = '<ul>';
-	    bibList.forEach(bib => {
-	    var authors = "";
-		bib.data.creators.map ( a => authors += `${a.firstName} ${a.lastName}, ` ) 
-		titleList += `<li> ${authors.slice(0,-1)} ${bib.data.title}`
-		if ( bib.data.url ) {
-		  titleList += ' <a href="' + bib.data.url + '">(link)</a>'
-		}
-	  })
-	  titleList = titleList + '</ul>'
-	  document.getElementById('output').innerHTML = titleList;
-	  document.getElementById('output').removeAttribute('hidden');
-      document.getElementById('waitoutput').setAttribute('hidden','');
-	  })
-	  .catch((error) => { console.log(error) })
-  } else {
-	document.getElementById('output').innerHTML = "<p><b> Seleziona almeno un tag</b>";
+  var selected = Array.from(select.options).filter(opt => opt.selected)[0].value;
+  console.log(selected)
+  var collectionKey = collections.find( c => c.data.name === selected).data.key;
+  console.log(collectionKey)
+  fetch(`${url}/collections/${collectionKey}/items?format=bib&style=${style}`, { headers: headers})
+  .then( (response) => response.text() )
+  .then( (bib) => {
+	document.getElementById('output').innerHTML = bib;
 	document.getElementById('output').removeAttribute('hidden');
     document.getElementById('waitoutput').setAttribute('hidden','');
-  }
+  })
+  .catch((error) => { console.log(error) })
 });
