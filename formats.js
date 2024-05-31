@@ -1,17 +1,18 @@
 const tagList = 
 [ 
   {"item": ""},
-  {"item": "Monumento"},
-  {"item": "Museo"},
+  {"item": "Grotta"},
+  {"item": "Ristoro"},
   {"item": "Accoglienza"},
   {"item": "Svago"},
-  {"item": "Ristoro"},
-  {"item": "Servizi"},
   {"item": "Infopoint"},
+  {"item": "Servizi"},
   {"item": "Trasporti"},
+  {"item": "Sanità"},
   {"item": "Segnaletica"},
   {"item": "Attrazione naturalistica"},
-  {"item": "Grotta"}
+  {"item": "Museo"},
+  {"item": "Monumento"}
 ]
 
 

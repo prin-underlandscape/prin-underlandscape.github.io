@@ -1,4 +1,4 @@
-var geojson = {
+const geojson = {
   "type": "FeatureCollection",
   "properties": {
      "Nome": "",
@@ -44,31 +44,35 @@ function csvToJSON(csv) {
 // La funzione risponde alla scelta del file in apertura della App
 // e, a caricamento avvenuto, chiama la funzione processFile
 function fileUpload (event) {
-	//event.preventDefault(); // Evita che venga ricaricato il form
-	if (!file.value.length) return; // Annulla se file vuoto (prudente)
+//event.preventDefault(); // Evita che venga ricaricato il form
+  if (!file.value.length) return; // Annulla se file vuoto (prudente)
   [filename, inputType] = file.value.split('.');
   filename = filename.split("\\").pop();
-	var reader = new FileReader();
-	reader.onload = (event) => {
-    document.getElementById("info").style.display="none";
-    switch (inputType) {
+  var reader = new FileReader();
+  reader.onload = (event) => {
+  document.getElementById("info").style.display="none";
+  switch (inputType) {
       case "geojson":
         var data = JSON.parse(event.target.result);
-// Backward compatibility with FeatureCollections without properties
-// Does not override if already set (keeps first value)
+// Defaults to empty all properties
+        geojson.properties = {'Nome': filename, 'Descrizione': '', 'umapKey': '', 'WebPageURL': ''}
+// Backward compatibility with FeatureCollections (data) with incomplete properties
         if ( 'properties' in data ) {
-          if ( ( ! ( 'Nome' in geojson.properties ) ) || ( geojson.properties.Nome === '' ) ) {
-            geojson.properties.Nome = ( 'Nome' in data.properties ) ? data.properties.Nome : filename;
+		  if ( 'Nome' in data.properties ) {
+		    geojson.properties.Nome = data.properties.Nome
+		  }  
+          if ( 'Descrizione' in data.properties ) {
+            geojson.properties.Descrizione = data.properties.Descrizione
           }
-          if ( ( ! ( 'Descrizione' in geojson.properties ) ) || ( geojson.properties.Descrizione === '' ) ) {
-            geojson.properties.Descrizione = ( 'Descrizione' in data.properties ) ? data.properties.Descrizione : '';
+          if ( 'umapKey' in data.properties ) {
+            geojson.properties.umapKey = data.properties.umapKey
           }
-//          if ( ( ! ( 'umapKey' in geojson.properties ) ) || ( geojson.properties.umapKey === '' ) ) {
-//            geojson.properties.umapKey = ( 'umapKey' in data.properties ) ? data.properties.umapKey : '';
-//          }
+          if ( 'WebPageURL' in data.properties ) {
+            geojson.properties.WebPageURL = data.properties.WebPageURL
+          }
         } 
         else
-          geojson.properties = {'Nome': '','Descrizione': '','umapKey': ''}
+          
 // Join FeatureCollections
         data.features.map(f => geojson.features.push(f));
         processFile();
@@ -328,23 +332,17 @@ function saveGeoJSON() {
 // Gestisce l'interfaccia chiudendo l'interfaccia di editing e
 // reinizializza la variabile "geojson" 
 function closeFile() {
-	document.getElementById("FeatureList").style.display="none";
-	document.getElementById("FeaturesTable").replaceChildren();
-	document.getElementById("FileList").style.display="none";
-	document.getElementById("Files").replaceChildren();
-	document.getElementById("upload").style.display="block";
-	document.getElementById("file").value = "";
+  document.getElementById("FeatureList").style.display="none";
+  document.getElementById("FeaturesTable").replaceChildren();
+  document.getElementById("FileList").style.display="none";
+  document.getElementById("Files").replaceChildren();
+  document.getElementById("upload").style.display="block";
+  document.getElementById("file").value = "";
   document.getElementById('FeatureCollectionName').value="";
   document.getElementById('FeatureCollectionDescription').value="";
   document.getElementById('FeatureCollectionUmapKey').value="";
-  geojson = {
-    "type": "FeatureCollection",
-    "properties": {
-      "Nome": "",
-      "Descrizione": "",
-      "umapKey": ""},
-      "features": []
-  };
+  geojson.features = [];
+  geojson.properties = {};
 }
 
 // La funzione risponde al tasto "Modifica" relativo ad una feature
