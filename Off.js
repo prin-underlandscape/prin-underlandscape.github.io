@@ -71,9 +71,8 @@ function fileUpload (event) {
             geojson.properties.WebPageURL = data.properties.WebPageURL
           }
         } 
-        else
-          
 // Join FeatureCollections
+console.log(data.features)
         data.features.map(f => geojson.features.push(f));
         processFile();
         break;
@@ -200,7 +199,7 @@ function processFile () {
 // Abilita il pannello di scelta della feature
   document.getElementById("FeatureList").style.display="block";
   
-//  console.log(geojson)
+  console.log(geojson)
 
 // Verifica se il valore di input dei tre box è già definito (in caso di merge
 // è possibile e si conserva quello del primo file caricato) altrimenti
@@ -225,9 +224,13 @@ function processFile () {
       document.getElementById('FeatureCollectionUmapKey').value=geojson.properties.umapKey;
     }
   }
+  if ( document.getElementById('FeatureCollectionWebPageURL').value === "" ) {
+    if ( geojson.properties.WebPageURL ) {
+      document.getElementById('FeatureCollectionWebPageURL').value=geojson.properties.WebPageURL;
+    }
+  }
   
   let featuresTable=document.getElementById("FeaturesTable");
-  
   geojson.features.forEach( (feature, featureIndex) => {
     let featureTools = document.createElement("DIV"); 
     let name = document.createElement("LABEL");
@@ -315,7 +318,7 @@ function saveGeoJSON() {
   geojson.properties.Nome = document.getElementById('FeatureCollectionName').value;
   geojson.properties.Descrizione = document.getElementById('FeatureCollectionDescription').value;
   geojson.properties.umapKey = document.getElementById('FeatureCollectionUmapKey').value;
-  geojson.properties.WebPageURL = document.getElementById('WebPageURL').value;
+  geojson.properties.WebPageURL = document.getElementById('FeatureCollectionWebPageURL').value;
 //  geojson.properties.BibliographyURL = document.getElementById('BibliographyURL').value;
   const a = document.createElement("a");
 //	console.log(geojson);
@@ -341,6 +344,7 @@ function closeFile() {
   document.getElementById('FeatureCollectionName').value="";
   document.getElementById('FeatureCollectionDescription').value="";
   document.getElementById('FeatureCollectionUmapKey').value="";
+  document.getElementById('FeatureCollectionWebPageURL').value="";
   geojson.features = [];
   geojson.properties = {};
 }
