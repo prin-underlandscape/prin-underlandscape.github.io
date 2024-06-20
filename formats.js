@@ -563,7 +563,7 @@ const formatDescriptions =
       },
       ]
 },
-{
+  {
       "formname": "Percorso",
       "formitems": [
           {
@@ -725,40 +725,217 @@ const formatDescriptions =
             "type": "time"
           }
         ]
-      },
-{
-      "formname": "QRtag",
-      "formitems": [
-          {
+  },
+  {
+    "formname": "QRtag",
+    "formitems": [
+      {
             "key": "ulsp_type",
             "value": "",
             "type": "string"
           },
-          {
+      {
             "key": "Titolo",
             "value": "40",
             "type": "string"
           },
-          {
+      {
             "key": "Foto",
             "value": "",
             "type": "string"
           },
-          {
+      {
             "key": "fid",
             "value": "",
             "type": "string"
           },
-          {
+      {
             "key": "Descrizione",
             "value": "",
             "type": "string"
           },
-          {
+      {
             "key": "Testo",
             "value": "700",
             "type": "string"
           }
-        ]
-      }
+    ]
+  },
+  {
+    "formname": "Risorsa",
+    "formitems": [
+      {
+            "key": "ulsp_type",
+            "value": "",
+            "type": "string"
+          },
+	  {
+	        "key": "Titolo",
+	        "value": "",
+	        "type": "string"
+	      },
+	  {
+	        "key": "Foto",
+	        "value": "",
+	        "type": "string"
+	      },
+      {
+	        "key": "Descrizione",
+	        "value": "",
+	        "type": "string"
+	      },
+      {
+            "key": "Altitudine",
+            "value": "",
+            "type": "integer",
+            "unit": "m"
+          },
+      { 
+			"key": "Link",
+		    "label": "Link",
+		    "value": "",
+		    "type": "string"
+	      },
+      {
+            "key": "Tag primario",
+            "values": {
+              "items": tagList
+            },
+            "value": "",
+            "type": "stringcombo"
+          },
+      {
+            "key": "Altri tag",
+            "values": {
+            "items": tagList
+            },
+            "value": "",
+            "type": "stringmulti"
+          }
+    ]
+  },
+  {
+    "formname": "Itinerario",
+    "formitems": [
+      {
+              "key": "ulsp_type",
+              "value": "",
+              "type": "string"
+            },
+      {
+              "key": "Titolo",
+              "value": "",
+              "type": "string"
+            },
+      {
+              "key": "Provincia",
+              "value": "",
+              "type": "string"
+            },
+      {
+              "key": "Comune",
+              "value": "",
+              "type": "string"
+            },
+      {
+              "key": "Punto d'accesso",
+              "value": "",
+              "type": "string"
+            },
+      {
+              "key": "Foto accesso",
+              "label": "Foto",
+              "value": "",
+              "type": "pictures"
+            },
+      {
+              "key": "Descrizione",
+              "value": "",
+              "type": "string"
+            },
+      {
+              "key": "Difficoltà",
+              "values": {
+                "items": [
+                  {
+                    "item": ""
+                  },
+                  {
+                    "item": "Facile"
+                  },
+                  {
+                    "item": "Media difficoltà"
+                  },
+                  {
+                    "item": "Difficile"
+                  }
+                ]
+              },
+              "value": "",
+              "type": "stringcombo"
+            },
+      {
+              "key": "Tipologia",
+              "values": {
+                "items": [
+                  {
+                    "item": ""
+                  },
+			      {
+				    "item": "Naturalistico"
+			      },
+			      {
+				    "item": "Storico-archeologico"
+			      }
+			    ]
+              },
+              "value": "",
+              "type": "stringcombo"
+            },
+      {
+              "key": "Lunghezza",
+              "value": "",
+              "type": "integer",
+              "unit": "km"
+            },
+      {
+              "key": "Durata",
+              "value": "",
+              "type": "string"
+            },
+      {
+              "key": "Dislivello in salita",
+              "value": "",
+              "type": "integer",
+              "unit": "m"
+            },
+      {
+              "key": "Dislivello in discesa",
+              "value": "",
+              "type": "integer",
+              "unit": "m"
+            },
+      {
+              "key": "Segnaletica",
+              "values": {
+                "items": [
+                  {
+                    "item": ""
+                  },
+                  {
+                    "item": "Congruente"
+                  },
+                  {
+                    "item": "Assente"
+                  },
+                  {
+                    "item": "Non sufficiente"
+                  }
+                ]
+              },
+              "value": "",
+              "type": "stringcombo"
+            }
+    ]
+  }
 ]

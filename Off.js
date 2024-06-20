@@ -170,6 +170,8 @@ function featureName(fp) {
       case "Percorso":
       case "POI":
       case "QRtag":
+      case "Risorsa":
+      case "Itinerario":
         return `${fp.Titolo}`;
         break;
     }
