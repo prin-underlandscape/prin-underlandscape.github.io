@@ -466,12 +466,12 @@ const formatDescriptions =
         "key": "Foto",
         "label": "Foto",
         "value": "",
-        "type": "string"
+        "type": "pictures"
       },
       { "key": "Link",
 		"label": "Link",
 		"value": "",
-		"type": "string"
+		"type": "ulspurl"
 	  },
       {
         "key": "Bibliografia",
@@ -512,7 +512,7 @@ const formatDescriptions =
         {
           "key": "Foto",
           "value": "",
-          "type": "string"
+          "type": "pictures"
         },
         {
           "key": "Descrizione",
@@ -632,7 +632,7 @@ const formatDescriptions =
           {
             "key": "Durata",
             "value": "",
-            "type": "string"
+            "type": "duration"
           },
           {
             "key": "Dislivello in salita",
@@ -742,7 +742,7 @@ const formatDescriptions =
       {
             "key": "Foto",
             "value": "",
-            "type": "string"
+            "type": "pictures"
           },
       {
             "key": "fid",
@@ -777,7 +777,7 @@ const formatDescriptions =
 	  {
 	        "key": "Foto",
 	        "value": "",
-	        "type": "string"
+	        "type": "pictures"
 	      },
       {
 	        "key": "Descrizione",
@@ -794,7 +794,7 @@ const formatDescriptions =
 			"key": "Link",
 		    "label": "Link",
 		    "value": "",
-		    "type": "string"
+		    "type": "weburl"
 	      },
       {
             "key": "Tag primario",
@@ -901,7 +901,7 @@ const formatDescriptions =
       {
               "key": "Durata",
               "value": "",
-              "type": "string"
+              "type": "duration"
             },
       {
               "key": "Dislivello in salita",

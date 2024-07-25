@@ -387,10 +387,35 @@ function editFeature (featureIndex) {
     let propertyValue = document.createElement("TEXTAREA");
     propertyValue.rows = 1 + Math.floor(present.length/40);
     propertyValue.cols = 40;
-    if ( value.value ) {
+    switch ( value.type) {
+      case 'string':
+        if ( value.value ) {
 //      console.log(value.value);
-      propertyValue.maxLength = value.value;
-      propertyValue.placeholder = `Lunghezza massima: ${value.value} caratteri`
+          propertyValue.maxLength = value.value;
+          propertyValue.placeholder = `Lunghezza massima: ${value.value} caratteri`;
+        }
+        break;
+      case 'date':	
+        propertyValue.placeholder = "2023-04-23";
+        propertyValue.cols = 12;
+        break;
+      case 'time':	
+        propertyValue.placeholder = "12:01:25CET";
+        propertyValue.cols = 12;
+        break;
+      case 'duration':	
+        propertyValue.placeholder = "1h 30m";
+        propertyValue.cols = 12;
+        break;
+      case 'pictures':	
+        propertyValue.placeholder = "https://i.postimg.cc/XNdwQ7LB/Foto.jpg";
+        break;
+      case 'weburl':	
+        propertyValue.placeholder = "https://www.hotel.com";
+        break;
+      case 'ulspurl':	
+        propertyValue.placeholder = "https://sites.google.com/view/prin-underlandscape/";
+        break;
     }
     propertyValue.overflow = "scroll";
     propertyValue.style = "vertical-align:middle"
@@ -552,8 +577,11 @@ function editFeature (featureIndex) {
       switch (property.type) {
         case "string":
         case "date": 
-        case "time": 
+        case "time":
+        case "duration":
         case "pictures":
+        case "weburl":
+        case "ulspurl":
           editString(present,property);
           break;
         case "stringcombo": 
