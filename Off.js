@@ -408,13 +408,13 @@ function editFeature (featureIndex) {
         propertyValue.cols = 12;
         break;
       case 'pictures':	
-        propertyValue.placeholder = "https://i.postimg.cc/XNdwQ7LB/Foto.jpg";
+//        propertyValue.placeholder = "https://i.postimg.cc/XNdwQ7LB/Foto.jpg";
         break;
       case 'weburl':	
-        propertyValue.placeholder = "https://www.hotel.com";
+//        propertyValue.placeholder = "https://www.hotel.com";
         break;
       case 'ulspurl':	
-        propertyValue.placeholder = "https://sites.google.com/view/prin-underlandscape/";
+//        propertyValue.placeholder = "https://sites.google.com/view/prin-underlandscape/";
         break;
     }
     propertyValue.overflow = "scroll";
