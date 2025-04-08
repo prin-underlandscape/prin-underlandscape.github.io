@@ -15,11 +15,9 @@ const tagList =
   {"item": "Monumento"}
 ]
 
-
 const formatDescriptions = 
 // To define/modify the description of the formats edit the lines below
-// and check they are legal JSON at https://jsonlint.com/. Do not touch
-// the first line of this file
+// and check they are legal JSON at https://jsonlint.com/.
 [
   {
     "formname": "Sito",
